@@ -17,7 +17,7 @@ public abstract class BasePageProcessor implements PageProcessor,Closeable {
 	public static final int MIN_JUZI_LENGTH = 18;
 
 
-	private static final String EXCEL_XLS = ".xls";
+	public static final String EXCEL_XLS = ".xls";
 	// private static final String EXCEL_XLSX = "xlsx";
 	private static final String OUT_PUT_DIR = "output";
 
@@ -41,11 +41,15 @@ public abstract class BasePageProcessor implements PageProcessor,Closeable {
 						throw new RuntimeException("create dir error: " + dir.getPath());
 					}
 				}
-				mWriteFile = new File(dir,this.getClass().getSimpleName()+EXCEL_XLS);
+				mWriteFile = new File(dir,getFileName());
 			}
 		}
 
 		return mWriteFile;
+	}
+
+	protected String getFileName(){
+		return this.getClass().getSimpleName()+EXCEL_XLS;
 	}
 
 	protected JuziExcel createJuziExcel(File file) {
