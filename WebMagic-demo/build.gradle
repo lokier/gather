@@ -10,6 +10,7 @@ sourceSets {
     main {
         java {
             srcDir 'src/'
+            srcDir 'src-webmagic-core'
             //src 'src/log4j.properties'
         }
 

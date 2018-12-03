@@ -1,6 +1,8 @@
 package com.juzicool.gather;
 
+import java.io.Closeable;
 import java.io.File;
+import java.io.IOException;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.PropertyConfigurator;
@@ -10,7 +12,7 @@ import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.processor.PageProcessor;
 import us.codecraft.webmagic.selector.Selectable;
 
-public abstract class BasePageProcessor implements PageProcessor {
+public abstract class BasePageProcessor implements PageProcessor,Closeable {
 
 	public static final int MIN_JUZI_LENGTH = 18;
 
@@ -26,6 +28,7 @@ public abstract class BasePageProcessor implements PageProcessor {
 	private JuziExcel mJuziExcel = null;
 
 	public BasePageProcessor() {
+
 	}
 
 	public File getWriteFile() {
@@ -76,11 +79,14 @@ public abstract class BasePageProcessor implements PageProcessor {
 		}
 
 		synchronized (getClass()) {
+			try {
 			if(mJuziExcel == null) {
 				mJuziExcel = createJuziExcel(getWriteFile());
+				mJuziExcel.prepare();
 			}
-			try {
+
 				mJuziExcel.write(juzi);
+				//mJuziExcel.close();
 				System.out.println("write juzi success：" );
 				return true;
 			} catch (Exception e) {
@@ -91,24 +97,18 @@ public abstract class BasePageProcessor implements PageProcessor {
 		return false;
 	}
 
+	@Override
+	public void close() throws IOException{
+		if(mJuziExcel!=null){
+			mJuziExcel.close();
+		}
+	}
+
 
 	@Override
 	public Site getSite() {
 		return gSite;
 	}
-
-	/**
-	 * 返回纯文本。
-	 * @param select
-	 * @param containReturnLine   是否包含换行符号
-	 * @return
-	 */
-	protected String getText(Selectable select, boolean containReturnLine) {
-
-		return null;
-	}
-
-
 
 
 

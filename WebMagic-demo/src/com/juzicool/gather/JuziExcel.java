@@ -3,6 +3,7 @@
 package com.juzicool.gather;
 
 import java.io.File;
+import java.io.IOException;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -10,6 +11,7 @@ import jxl.Workbook;
 import jxl.write.Label;
 import jxl.write.WritableSheet;
 import jxl.write.WritableWorkbook;
+import jxl.write.WriteException;
 
 public class JuziExcel {
 	final File mOutput;
@@ -59,7 +61,6 @@ public class JuziExcel {
 			Label label=new Label(3,row,author);
 			mSheet.addCell(label);
 		}
-
 	}
 
 	public void write(Juzi juzi) throws Exception  {
@@ -67,7 +68,7 @@ public class JuziExcel {
 	}
 
 
-	public void close() throws Exception {
+	public void close() throws IOException {
 		//写入数据，一定记得写入数据，不然你都开始怀疑世界了，excel里面啥都没有
 		if(mWorkBook  == null) {
 			return;
@@ -75,7 +76,11 @@ public class JuziExcel {
 
 		mWorkBook.write();
 		//最后一步，关闭工作簿
-		mWorkBook.close();
+		try {
+			mWorkBook.close();
+		}catch (WriteException ex){
+			throw new IOException(ex);
+		}
 		mWorkBook =null;
 		mSheet = null;
 	}
