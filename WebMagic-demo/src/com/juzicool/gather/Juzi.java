@@ -1,3 +1,4 @@
+package com.juzicool.gather;
 
 public class Juzi {
 	
