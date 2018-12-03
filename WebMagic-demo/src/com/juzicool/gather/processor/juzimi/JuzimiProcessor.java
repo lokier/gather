@@ -90,7 +90,7 @@ public class JuzimiProcessor extends BasePageProcessor {
 
 	public static void main(String[] args) {
 
-		Gloabal.beforeMain();
+		//Gloabal.beforeMain();
 
 
 		JuzimiProcessor p = new JuzimiProcessor();
@@ -98,16 +98,13 @@ public class JuzimiProcessor extends BasePageProcessor {
 		String urlPrfix = "https://www.juzimi.com/tags/%E5%8F%8B%E6%83%85";
 		Spider spider =  Spider.create(p);
 
-		spider.addUrl("https://www.juzimi.com/album/2364?page=0");
-		spider.addUrl("https://www.juzimi.com/album/2364?page=1");  //优美的句子,美好,难过，或暂，长久,难忘
+		spider.addUrl("https://www.juzimi.com/tags/%E5%8F%8B%E6%83%85");
+		//spider.addUrl("https://www.juzimi.com/album/2364?page=1");  //优美的句子,美好,难过，或暂，长久,难忘
 
 		spider.thread(5).run();
 	}
 
 
-	private static class JuziAlbums{
-		public String urlPreffix;
 
-	}
 
 }

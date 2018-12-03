@@ -38,8 +38,8 @@ public class JuziExcel {
 	private int mNextWriteRow  = -1;
 
 	private void writeColumn(int row) throws Exception  {
-		for(int column = 1; column < TITLE.length;column++) {
-			Label label=new Label(column,row,TITLE[column]);
+		for(int column = 1; column <= TITLE.length;column++) {
+			Label label=new Label(column,row,TITLE[column-1]);
 			mSheet.addCell(label);
 		}
 	}
@@ -61,6 +61,32 @@ public class JuziExcel {
 			Label label=new Label(3,row,author);
 			mSheet.addCell(label);
 		}
+		
+		String category = juzi.category;
+		if(!StringUtils.isEmpty(category)) {
+			Label label=new Label(4,row,category);
+			mSheet.addCell(label);
+		}
+		
+		String remark = juzi.remark;
+		if(!StringUtils.isEmpty(remark)) {
+			Label label=new Label(5,row,remark);
+			mSheet.addCell(label);
+		}
+		
+		String tags = juzi.tags;
+		if(!StringUtils.isEmpty(tags)) {
+			Label label=new Label(6,row,tags);
+			mSheet.addCell(label);
+		}
+		
+		
+		String applyTags = juzi.applyTags;
+		if(!StringUtils.isEmpty(applyTags)) {
+			Label label=new Label(7,row,applyTags);
+			mSheet.addCell(label);
+		}
+
 	}
 
 	public void write(Juzi juzi) throws Exception  {

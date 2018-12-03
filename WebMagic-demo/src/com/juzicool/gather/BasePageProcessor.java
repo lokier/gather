@@ -64,6 +64,10 @@ public abstract class BasePageProcessor implements PageProcessor,Closeable {
 		JuziExcel excel = new JuziExcel(file);
 		return excel;
 	}
+	
+	protected int minJuziLength() {
+		return MIN_JUZI_LENGTH;
+	}
 
 	/**
 	 *  写句子
@@ -76,7 +80,7 @@ public abstract class BasePageProcessor implements PageProcessor,Closeable {
 			return false;
 		}
 
-		if(juzi.content.length()<  MIN_JUZI_LENGTH) {
+		if(juzi.content.length()<  minJuziLength() ) {
 			System.err.println("write juzi error:  句子太短：" + juzi.content );
 			return false;
 
@@ -91,7 +95,7 @@ public abstract class BasePageProcessor implements PageProcessor,Closeable {
 
 				mJuziExcel.write(juzi);
 				//mJuziExcel.close();
-				System.out.println("write juzi success：" );
+				System.out.println("write juzi success：" + juzi.toString() );
 				return true;
 			} catch (Exception e) {
 				e.printStackTrace();
