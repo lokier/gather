@@ -73,7 +73,7 @@ public class JuzimiProcessor extends BasePageProcessor {
 	public void process(Page page) {
 		String html = page.getHtml().toString();
 
-		System.out.println(html);
+		//System.out.println(html);
 
 		ArrayList<Juzi> rest = new ArrayList<>();
 		if(parseCase1(page,page.getHtml(), rest)
