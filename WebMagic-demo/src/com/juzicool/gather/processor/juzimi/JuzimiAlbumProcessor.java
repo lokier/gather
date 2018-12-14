@@ -14,6 +14,10 @@ import us.codecraft.webmagic.Spider;
 import us.codecraft.webmagic.selector.Html;
 import us.codecraft.webmagic.selector.Selectable;
 
+
+/***
+ * 句子迷的专辑页面。
+ */
 public class JuzimiAlbumProcessor extends JuzimiProcessor {
 
 	private HashMap<String,JuziAlbum> mMap = new HashMap<>();
@@ -61,6 +65,8 @@ public class JuzimiAlbumProcessor extends JuzimiProcessor {
 
 		Spider spider =  Spider.create(p);
 
+		/*
+		p.addAlbum(JuziAlbum.build().setUrl("https://www.juzimi.com/album/107424").setPageSize(1).setCategoy("哲理").setRemark("睿智是最高目标，思想主导一切。").setTags("正能量，经典").setApplyTags(""));
 		p.addAlbum(JuziAlbum.build().setUrl("https://www.juzimi.com/album/2364").setPageSize(2).setCategoy("感悟").setRemark("美好,难过，或暂，长久,难忘").setTags("唯美").setApplyTags("写作"));
 		p.addAlbum(JuziAlbum.build().setUrl("https://www.juzimi.com/album/1131886").setPageSize(2).setCategoy("台词").setRemark("结婚誓词，自肺腑的寥寥数语是两人对婚姻和一辈子的坚定承诺，最动人的誓言").setTags("感动").setApplyTags("结婚，表白，感动人"));
 		p.addAlbum(JuziAlbum.build().setUrl("https://www.juzimi.com/album/3903593").setPageSize(4).setCategoy("名言").setRemark("描写励志的名人名言，那些励志的名人句子和经典语录").setTags("正能量").setApplyTags(""));
@@ -77,7 +83,6 @@ public class JuzimiAlbumProcessor extends JuzimiProcessor {
 		p.addAlbum(JuziAlbum.build().setUrl("https://www.juzimi.com/album/144942").setPageSize(7).setCategoy("情感").setRemark("滴墨成伤，伤感，怀念").setTags("伤感，唯美").setApplyTags(""));
 		p.addAlbum(JuziAlbum.build().setUrl("https://www.juzimi.com/album/23325").setPageSize(7).setCategoy("诗词").setRemark("唯美的诗词").setTags("伤感，唯美").setApplyTags(""));
 		p.addAlbum(JuziAlbum.build().setUrl("https://www.juzimi.com/album/39826").setPageSize(10).setCategoy("哲理").setRemark("睿智是最高目标，思想主导一切。").setTags("正能量，经典").setApplyTags(""));
-
 
 
 
@@ -99,7 +104,6 @@ public class JuzimiAlbumProcessor extends JuzimiProcessor {
 		p.addAlbum(JuziAlbum.build().setUrl("https://www.juzimi.com/album/1364017").setPageSize(23).setCategoy("心语").setRemark("陶人喜欢、治愈的句子").setTags("治愈、唯美").setApplyTags(""));
 		p.addAlbum(JuziAlbum.build().setUrl("https://www.juzimi.com/album/571").setPageSize(2).setCategoy("台词").setRemark("好电影有很多，好台词也有很多。那些闪过银幕的句子，感动过我的瞬间，记录下来。").setTags("经典").setApplyTags("电影台词，对话"));
 
-
 		p.addAlbum(JuziAlbum.build().setUrl("https://www.juzimi.com/album/252457").setPageSize(7).setCategoy("心语").setRemark("往事如烟、以前的事、旧时的心情").setTags("伤感，唯美").setApplyTags("写以前"));
 		p.addAlbum(JuziAlbum.build().setUrl("https://www.juzimi.com/album/429258").setPageSize(56).setCategoy("情感").setRemark("耽美小说，耽美文不多，才刚刚腐").setTags("伤感，唯美").setApplyTags("耽美小说"));
 		p.addAlbum(JuziAlbum.build().setUrl("https://www.juzimi.com/album/431").setPageSize(4).setCategoy("爱情").setRemark("爱情心语").setTags("经典").setApplyTags(""));
@@ -115,20 +119,26 @@ public class JuzimiAlbumProcessor extends JuzimiProcessor {
 		p.addAlbum(JuziAlbum.build().setUrl("https://www.juzimi.com/album/585237").setPageSize(9).setCategoy("心语").setRemark("为高考作文优选佳句，高考必备").setTags("经典").setApplyTags("高考作文"));
 		p.addAlbum(JuziAlbum.build().setUrl("https://www.juzimi.com/album/89556").setPageSize(50).setCategoy("感悟").setRemark("最安静的心跳与思绪才是我们真实的自己，为自己保留几年，生产期随时，但味道也许会变，最真实的自己献给青春， 城市自述").setTags("治愈").setApplyTags("城市里忙碌"));
 		p.addAlbum(JuziAlbum.build().setUrl("https://www.juzimi.com/album/66884").setPageSize(7).setCategoy("心语").setRemark("韶华已逝，青春未晚，逝去的青春").setTags("伤感").setApplyTags(""));
-
-/*		p.addAlbum(JuziAlbum.build().setUrl("https://www.juzimi.com/album/37711").setPageSize(0).setCategoy("思念").setRemark("").setTags("伤感").setApplyTags(""));
-		p.addAlbum(JuziAlbum.build().setUrl("https://www.juzimi.com/album/37711").setPageSize(0).setCategoy("思念").setRemark("").setTags("伤感").setApplyTags(""));
-		p.addAlbum(JuziAlbum.build().setUrl("https://www.juzimi.com/album/37711").setPageSize(0).setCategoy("思念").setRemark("").setTags("伤感").setApplyTags(""));
-		p.addAlbum(JuziAlbum.build().setUrl("https://www.juzimi.com/album/37711").setPageSize(0).setCategoy("思念").setRemark("").setTags("伤感").setApplyTags(""));
-		p.addAlbum(JuziAlbum.build().setUrl("https://www.juzimi.com/album/37711").setPageSize(0).setCategoy("思念").setRemark("").setTags("伤感").setApplyTags(""));
-		p.addAlbum(JuziAlbum.build().setUrl("https://www.juzimi.com/album/37711").setPageSize(0).setCategoy("思念").setRemark("").setTags("伤感").setApplyTags(""));
-		p.addAlbum(JuziAlbum.build().setUrl("https://www.juzimi.com/album/37711").setPageSize(0).setCategoy("思念").setRemark("").setTags("伤感").setApplyTags(""));
-		p.addAlbum(JuziAlbum.build().setUrl("https://www.juzimi.com/album/37711").setPageSize(0).setCategoy("思念").setRemark("").setTags("伤感").setApplyTags(""));
-		p.addAlbum(JuziAlbum.build().setUrl("https://www.juzimi.com/album/37711").setPageSize(0).setCategoy("思念").setRemark("").setTags("伤感").setApplyTags(""));
-		p.addAlbum(JuziAlbum.build().setUrl("https://www.juzimi.com/album/37711").setPageSize(0).setCategoy("思念").setRemark("").setTags("伤感").setApplyTags(""));
-		p.addAlbum(JuziAlbum.build().setUrl("https://www.juzimi.com/album/37711").setPageSize(0).setCategoy("思念").setRemark("").setTags("伤感").setApplyTags(""));*/
+*/
 
 
+		p.addAlbum(JuziAlbum.build().setUrl("https://www.juzimi.com/album/50584").setPageSize(4).setCategoy("情感").setRemark("每一句，都是一段故事。").setTags("唯美、情感").setApplyTags(""));
+		p.addAlbum(JuziAlbum.build().setUrl("https://www.juzimi.com/album/50584").setPageSize(4).setCategoy("").setRemark("").setTags("").setApplyTags(""));
+		p.addAlbum(JuziAlbum.build().setUrl("https://www.juzimi.com/album/50584").setPageSize(4).setCategoy("").setRemark("").setTags("").setApplyTags(""));
+		p.addAlbum(JuziAlbum.build().setUrl("https://www.juzimi.com/album/50584").setPageSize(4).setCategoy("").setRemark("").setTags("").setApplyTags(""));
+		p.addAlbum(JuziAlbum.build().setUrl("https://www.juzimi.com/album/50584").setPageSize(4).setCategoy("").setRemark("").setTags("").setApplyTags(""));
+		p.addAlbum(JuziAlbum.build().setUrl("https://www.juzimi.com/album/50584").setPageSize(4).setCategoy("").setRemark("").setTags("").setApplyTags(""));
+		p.addAlbum(JuziAlbum.build().setUrl("https://www.juzimi.com/album/50584").setPageSize(4).setCategoy("").setRemark("").setTags("").setApplyTags(""));
+		p.addAlbum(JuziAlbum.build().setUrl("https://www.juzimi.com/album/50584").setPageSize(4).setCategoy("").setRemark("").setTags("").setApplyTags(""));
+		p.addAlbum(JuziAlbum.build().setUrl("https://www.juzimi.com/album/50584").setPageSize(4).setCategoy("").setRemark("").setTags("").setApplyTags(""));
+		p.addAlbum(JuziAlbum.build().setUrl("https://www.juzimi.com/album/50584").setPageSize(4).setCategoy("").setRemark("").setTags("").setApplyTags(""));
+		p.addAlbum(JuziAlbum.build().setUrl("https://www.juzimi.com/album/50584").setPageSize(4).setCategoy("").setRemark("").setTags("").setApplyTags(""));
+		p.addAlbum(JuziAlbum.build().setUrl("https://www.juzimi.com/album/50584").setPageSize(4).setCategoy("").setRemark("").setTags("").setApplyTags(""));
+		p.addAlbum(JuziAlbum.build().setUrl("https://www.juzimi.com/album/50584").setPageSize(4).setCategoy("").setRemark("").setTags("").setApplyTags(""));
+
+
+
+		//
 		for(JuziAlbum album : p.mMap.values()) {
 			for(String url:album.toUrls()) {
 				spider.addUrl(url);
@@ -137,7 +147,7 @@ public class JuzimiAlbumProcessor extends JuzimiProcessor {
 		
 		//spider.addUrl("https://www.juzimi.com/album/2364?page=1");  //优美的句子,美好,难过，或暂，长久,难忘
 
-		spider.thread(5).run();
+		spider.thread(1).run();
 	}
 
 

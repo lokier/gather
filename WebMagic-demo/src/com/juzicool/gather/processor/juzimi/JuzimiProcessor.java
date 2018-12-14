@@ -23,7 +23,7 @@ public class JuzimiProcessor extends BasePageProcessor {
 			for(int i = 0 ;i < lists.size();i++) {
 				Selectable selct = (Selectable)lists.get(i);
 
-				Selectable juziE =selct.xpath("a[@class='xlistju']/text()");
+				Selectable juziE =selct.xpath("a[@class='xlistju']");
 				Selectable fromE=selct.xpath("span[@class='views-field-field-oriarticle-value']/text()");
 				Selectable authorE =selct.xpath("a[@class='views-field-field-oriwriter-value']/text()");
 
